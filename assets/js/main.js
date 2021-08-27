@@ -6,4 +6,9 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 7500,
     });
+
+    $('[data-fancybox="images"]').fancybox({
+        // Options will go here
+    });
 });
+

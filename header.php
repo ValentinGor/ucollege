@@ -66,10 +66,10 @@
             </ul>
         </div>
         <div class="nav__search">
-            <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url( '/' ) ?>" >
+            <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url('/') ?>">
                 <label class="display-none" for="s">Search</label>
-                <input type="text" value="<?php echo get_search_query() ?>" name="s" id="s" placeholder="Search this website..." />
-                <input type="submit" id="searchsubmit" value="SEARCH" />
+                <input type="text" value="<?php echo get_search_query() ?>" name="s" id="s" placeholder="Search this website..."/>
+                <input type="submit" id="searchsubmit" value="SEARCH"/>
             </form>
         </div>
     </div>

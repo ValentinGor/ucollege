@@ -1,0 +1,40 @@
+.featured {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__item {
+    width: 100%;
+    max-width: 225px;
+
+    &_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_link {
+      height: auto;
+      min-height: 30px;
+      background-color: #3a6988;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      a {
+        font-size: 12px;
+        color: #fff;
+        line-height: 1;
+        text-decoration: none;
+        width: 225px;
+        height: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 35px;
+      }
+    }
+  }
+}
+
