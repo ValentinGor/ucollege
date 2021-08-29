@@ -26,12 +26,16 @@ header {
       font-size: 16px;
       color: rgb(76, 76, 76);
       line-height: 1;
-      margin-top: 19px;
+      margin-top: 9px;
     }
   }
 
   &__info {
+    margin-right: 39px;
+
     &_menu {
+      margin-top: 11px;
+
       ul {
         margin: 0;
         padding: 0;
@@ -74,7 +78,7 @@ header {
     }
 
     &_contact {
-      margin-top: 23px;
+      margin-top: 11px;
 
       ul {
         margin: 0;
@@ -85,7 +89,7 @@ header {
 
         li {
           list-style-type: none;
-          margin-right: 11px;
+          margin-right: 10px;
           position: relative;
 
           &:before {
@@ -181,6 +185,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 10px;
 
   input {
     border-radius: 0;
