@@ -46,3 +46,9 @@ main {
 .post, .page {
   margin: 0;
 }
+
+@media (max-width: 991px) {
+  .form-group {
+    width: 100%;
+  }
+}

@@ -3,22 +3,35 @@
     background-color: #e8eff4;
     padding: 30px 40px 25px;
 
+    @media (max-width: 991px) {
+      padding: 30px 15px 25px;
+    }
+
     &_block {
       width: 100%;
       max-width: 960px;
       margin: 0 auto;
-
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+
+      @media (max-width: 991px){
+        flex-wrap: wrap;
+      }
 
       .footer__item {
         width: 100%;
         max-width: 190px;
         margin-right: 21px;
+        @media (max-width: 991px){
+          max-width: 33.3333%;
+        }
 
         &:first-child {
           max-width: 300px;
+          @media (max-width: 991px){
+            max-width: 100%;
+          }
         }
 
         &:last-child {
@@ -74,6 +87,9 @@
               margin-right: 5px;
               height: 25px;
               padding: 1px 6px;
+              @media (max-width: 991px) {
+                width: calc(100% - 6px);
+              }
             }
 
             button {
