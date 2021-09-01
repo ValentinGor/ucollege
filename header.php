@@ -27,27 +27,39 @@
     <div class="header">
         <div class="header__logo">
             <div class="header__logo_text">
-                <a href="<?php get_home_url(); ?>">
-                    Universal College
+                <a href="<?php echo get_home_url(); ?>">
+                    <?php bloginfo('name'); ?>
                 </a>
             </div>
             <div class="header__logo_slug">
-                Free PSD Website Template
+                <?php bloginfo('description'); ?>
             </div>
         </div>
         <div class="header__info">
-            <div class="header__info_menu">
-                <ul>
-                    <li><a href="#">Libero</a></li>
-                    <li><a href="#">Maecenas</a></li>
-                    <li><a href="#">Mauris</a></li>
-                    <li><a href="#">Suspendisse</a></li>
-                </ul>
-            </div>
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'menu-1',
+                'menu' => 'Top menu',
+                'container' => 'div',
+                'container_class' => 'header__info_menu',
+            ]);
+            ?>
             <div class="header__info_contact">
                 <ul>
-                    <li><a href="tel:xxxxxxxxxxxxxxx">Tel: xxxxx xxxxxxxxxx</a></li>
-                    <li><a href="mailto:info@domain.com">Mail: info@domain.com</a></li>
+                    <li>
+                        <?php if (get_field('main_phone', 'option')) { ?>
+                            <?php
+                            $tel = (get_field('main_phone', 'option'));
+                            $tel = preg_replace('![^0-9+]!', '', $tel);
+                            ?>
+                            <a href="tel:<?php echo $tel; ?>"><?php the_field('main_phone', 'option'); ?></a>
+                        <?php } ?>
+                    </li>
+                    <li>
+                        <?php if (get_field('main_mail', 'option')) { ?>
+                            <a href="mailto:<?php the_field('main_mail', 'option'); ?>">Mail: <?php the_field('main_mail', 'option'); ?></a>
+                        <?php } ?>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -56,15 +68,14 @@
 
 <nav>
     <div class="nav">
-        <div class="nav__menu">
-            <ul>
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">DropDown</a></li>
-                <li><a href="#">Gallery</a></li>
-            </ul>
-        </div>
+        <?php
+        wp_nav_menu([
+            'theme_location' => 'menu-2',
+            'menu' => 'Primary menu',
+            'container' => 'div',
+            'container_class' => 'nav__menu',
+        ]);
+        ?>
         <div class="nav__search">
             <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url('/') ?>">
                 <label class="display-none" for="s">Search</label>

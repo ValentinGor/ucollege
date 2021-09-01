@@ -51,7 +51,8 @@ if (!function_exists('ucollege_setup')) :
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(
             array(
-                'menu-1' => esc_html__('Primary', 'ucollege'),
+                'menu-1' => esc_html__('Top menu', 'ucollege'),
+                'menu-2' => esc_html__('Primary menu', 'ucollege'),
             )
         );
 
@@ -203,3 +204,9 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
     require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/acf-functions.php';

@@ -47,6 +47,11 @@ main {
   margin: 0;
 }
 
+.nav ul li.current_page_item a {
+  background-color: #f5f5f5;
+  color: #3a6988;
+}
+
 @media (max-width: 991px) {
   .form-group {
     width: 100%;
