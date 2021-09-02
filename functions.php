@@ -53,6 +53,9 @@ if (!function_exists('ucollege_setup')) :
             array(
                 'menu-1' => esc_html__('Top menu', 'ucollege'),
                 'menu-2' => esc_html__('Primary menu', 'ucollege'),
+                'menu-3' => esc_html__('Footer menu 1', 'ucollege'),
+                'menu-4' => esc_html__('Footer menu 2', 'ucollege'),
+                'menu-5' => esc_html__('Footer menu 3', 'ucollege'),
             )
         );
 
@@ -205,8 +208,21 @@ if (class_exists('WooCommerce')) {
     require get_template_directory() . '/inc/woocommerce.php';
 }
 
-
 /**
- * Customizer additions.
+ * Include ACF function.
  */
 require get_template_directory() . '/inc/acf-functions.php';
+
+
+/**
+ * Include widget posts.
+ */
+require get_template_directory() . '/inc/widget-posts.php';
+
+/**
+ * Include widget image.
+ */
+require get_template_directory() . '/inc/widget-image.php';
+
+// Contact Form 7 remove auto added p tags
+add_filter('wpcf7_autop_or_not', '__return_false');

@@ -32,11 +32,11 @@ Template Name: Main
 
             <?php
             $featured_posts = get_field('articles');
-            if( $featured_posts ): ?>
-                    <?php foreach( $featured_posts as $post ):
+            if ($featured_posts): ?>
+                <?php foreach ($featured_posts as $post):
 
-                        // Setup this post for WP functions (variable must be named $post).
-                        setup_postdata($post); ?>
+                    // Setup this post for WP functions (variable must be named $post).
+                    setup_postdata($post); ?>
 
                     <div class="featured__item">
                         <div class="featured__item_img">
@@ -52,7 +52,7 @@ Template Name: Main
                             </a>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
                 <?php
                 // Reset the global post object so that the rest of the page works correctly.
                 wp_reset_postdata(); ?>
@@ -123,94 +123,10 @@ Template Name: Main
             </div>
             <div class="content__sidebar">
                 <aside>
-                    <div class="content__sidebar_head">
-                        <h3>Ametorci Phasellus</h3>
-                    </div>
-
                     <?php
-                    // we set the criteria we need for fetching data from the database
-                    $args = array(
-                        'orderby' => 'DESC'
-                    );
-
-
-                    // query
-                    $query = new WP_Query($args); ?>
-
-                    <?php if ($query->have_posts()) : ?>
-
-                        <!-- pagination -->
-
-                        <!-- round -->
-                        <?php while ($query->have_posts()) : $query->the_post(); ?>
-                            <div class="content__sidebar_info">
-                                <div class="content__sidebar_info-img">
-                                    <?php
-                                    $image = get_field('article_img_xs');
-                                    if (!empty($image)): ?>
-                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="content__sidebar_info-txt">
-                                    <h4><?php the_title(); ?></h4>
-                                    <?php if (get_field('article_description')) { ?>
-
-                                        <?php
-                                        $mess = substr(get_field('article_description'), 0, 85);
-                                        echo $mess;
-                                        ?>
-
-                                    <?php } ?>
-                                    <a href="<?php the_permalink(); ?>">
-                                        Continue Reading »
-                                    </a>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                        <!-- end round -->
-
-                        <!-- pagination -->
-
-                        <?php wp_reset_postdata(); ?>
-
-                    <?php else : ?>
-                        <div class="content__sidebar_info">
-                            <div class="content__sidebar_info-txt">
-                                <h4><?php esc_html_e('No posts'); ?></h4>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </aside>
-                <aside>
-                    <div class="content__sidebar_head">
-                        <h3>Ametorci Phasellus</h3>
-                    </div>
-                    <div class="content__sidebar_fancybox">
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                        <a href="<?php echo get_template_directory_uri(); ?>/assets/img/960 x 270px.png" data-fancybox="images">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/80 x 80px.png" alt="img"/>
-                        </a>
-
-                    </div>
+                    if (function_exists('dynamic_sidebar'))
+                        dynamic_sidebar('sidebar-1');
+                    ?>
                 </aside>
             </div>
         </div>

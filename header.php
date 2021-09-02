@@ -27,9 +27,11 @@
     <div class="header">
         <div class="header__logo">
             <div class="header__logo_text">
-                <a href="<?php echo get_home_url(); ?>">
-                    <?php bloginfo('name'); ?>
-                </a>
+                <h1>
+                    <a href="<?php echo get_home_url(); ?>">
+                        <?php bloginfo('name'); ?>
+                    </a>
+                </h1>
             </div>
             <div class="header__logo_slug">
                 <?php bloginfo('description'); ?>
@@ -62,6 +64,56 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="header__menu">
+            <div class="header__menu_link">
+                <a id="mobile-menu-open" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+
+            <div id="mobile-menu-list" class="header__menu_mobile">
+
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'menu-2',
+                    'menu' => 'Primary menu',
+                    'container' => 'div',
+                    'container_class' => 'mobile__menu',
+                ]);
+                ?>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'menu-1',
+                    'menu' => 'Top menu',
+                    'container' => 'div',
+                    'container_class' => 'mobile__menu',
+                ]);
+                ?>
+                <div class="mobile__menu">
+                    <ul>
+                        <li>
+                            <?php if (get_field('main_phone', 'option')) { ?>
+                                <?php
+                                $tel = (get_field('main_phone', 'option'));
+                                $tel = preg_replace('![^0-9+]!', '', $tel);
+                                ?>
+                                <a href="tel:<?php echo $tel; ?>"><?php the_field('main_phone', 'option'); ?></a>
+                            <?php } ?>
+                        </li>
+                        <li>
+                            <?php if (get_field('main_mail', 'option')) { ?>
+                                <a href="mailto:<?php the_field('main_mail', 'option'); ?>">Mail: <?php the_field('main_mail', 'option'); ?></a>
+                            <?php } ?>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+
         </div>
     </div>
 </header>

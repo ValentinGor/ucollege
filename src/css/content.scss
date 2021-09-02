@@ -29,6 +29,10 @@
         width: calc(50% - 7px);
       }
 
+      @media (max-width: 575px) {
+        width: 100%;
+      }
+
       .article {
         &__head {
           border-bottom: 1px solid rgb(102, 102, 102);

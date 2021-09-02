@@ -1,4 +1,8 @@
-html body {
+html {
+  overflow-x: hidden;
+}
+
+body {
   overflow-x: hidden;
   box-sizing: border-box;
 
@@ -52,8 +56,23 @@ main {
   color: #3a6988;
 }
 
-@media (max-width: 991px) {
-  .form-group {
-    width: 100%;
-  }
+#exampleInputEmail1 {
+  width: calc(100% - 6px);
+}
+
+.form-group {
+  width: calc(100% - 38px);
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+.wpcf7-not-valid-tip {
+  color: red !important;
+}
+
+.wpcf7-response-output {
+  width: 100%;
 }

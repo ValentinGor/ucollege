@@ -16,6 +16,12 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
+        'page_title' 	=> 'Picture gallery',
+        'menu_title'	=> 'Picture',
+        'parent_slug'	=> 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
         'page_title' 	=> 'Contact Settings',
         'menu_title'	=> 'Contact',
         'parent_slug'	=> 'theme-general-settings',
